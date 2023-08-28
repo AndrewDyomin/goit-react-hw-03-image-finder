@@ -1,7 +1,23 @@
-export const App = () => {
+import { GlobalStyle } from './Global-style';
+import { Component } from "react";
+import { Searchbar } from "./Searchbar/Searchbar";
+
+export class App extends Component {
+  state = {
+    query: '',
+  };
+
+submitHandler = async evt => {
+  evt.preventDefault();
+  console.log(evt);
+};
+
+ render() {
   return (
-    <div>
-      React homework template
-    </div>
+    <>
+      <GlobalStyle />
+      <Searchbar onSubmit={this.submitHandler} />
+    </>
   );
+ };
 };
