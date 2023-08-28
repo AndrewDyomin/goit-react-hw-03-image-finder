@@ -5,18 +5,20 @@ import { Searchbar } from "./Searchbar/Searchbar";
 export class App extends Component {
   state = {
     query: '',
+    images: [],
   };
 
-submitHandler = async evt => {
-  evt.preventDefault();
-  console.log(evt);
+submitHandler = (newQuery) => {
+  this.setState({
+    query: newQuery,
+  })
 };
 
  render() {
   return (
     <>
       <GlobalStyle />
-      <Searchbar onSubmit={this.submitHandler} />
+      <Searchbar changeQuery={this.submitHandler} />
     </>
   );
  };
