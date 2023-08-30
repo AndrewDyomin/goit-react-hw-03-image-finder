@@ -1,20 +1,20 @@
-import { Header } from './Searchbar.styled';
+import { Header, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from './Searchbar.styled';
 
 export const Searchbar = ({ changeQuery }) => {
     return (
     <Header className="searchbar">
-        <form 
+        <SearchForm 
         className="form"
         onSubmit={ (evt) => {
             evt.preventDefault();
             changeQuery(evt.target.elements.query.value);
             evt.target.reset();
         }}>
-            <button type="submit" className="button">
-            <span className="button-label">Search</span>
-            </button>
+            <SearchFormButton type="submit" className="button">
+             <SearchFormButtonLabel className="button-label">Search</SearchFormButtonLabel>
+            </SearchFormButton>
 
-            <input
+            <SearchFormInput
             name="query"
             className="input"
             type="text"
@@ -22,7 +22,7 @@ export const Searchbar = ({ changeQuery }) => {
             autoFocus
             placeholder="Search images and photos"
             />
-        </form>
+        </SearchForm>
     </Header>
     );
 };
