@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 import { FallingLines } from 'react-loader-spinner';
 import { GlobalStyle } from './Global-style';
 import { Component } from "react";
@@ -8,6 +9,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
+const notify = () => toast('Please, enter your query.');
 
 export class App extends Component {
   state = {
@@ -27,7 +29,7 @@ submitHandler = (newQuery) => {
       page: 1,
     })
   } else { 
-    console.log('please, enter your query')
+    notify();
   }
 };
 
@@ -52,6 +54,7 @@ loadMoreHendler = () => {
   return (
     <>
       <GlobalStyle />
+      <Toaster />
       <Searchbar changeQuery={this.submitHandler} />
       <FallingLines
         color="#4fa94d"

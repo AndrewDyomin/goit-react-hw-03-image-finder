@@ -1,10 +1,10 @@
 
 
-export const ImageModal = ({  }) => {
+export const ImageModal = ({ src, alt }) => {
     return (
-        <div class="overlay">
-            <div class="modal">
-                <img src="" alt="" />
+        <div className="overlay">
+            <div className="modal">
+                <img src={src} alt={alt} />
             </div>
         </div>
     );
